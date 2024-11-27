@@ -40,10 +40,14 @@ public class Login {
             if (usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)) {
                 System.out.print("Welcome Home " + username);
                 System.exit(0);
-//            } else if (i == usernames.length -1) {
-//                attempts++;
-//                System.out.print("Incorrect username or password. Try again.");
-//                requestLogin();
+            } else if (i == usernames.length -1) {
+                attempts++;
+                System.out.println("Incorrect username or password. Try again.");
+                requestLogin();
+            }
+            else if (attempts >= 2) {
+                System.out.print("Too many attempts. Shutting down.");
+                System.exit(0);
             }
         }
     }
