@@ -1,4 +1,5 @@
 import java.util.Locale;
+import java.util.Scanner;
 
 public class Login {
 
@@ -23,14 +24,26 @@ public class Login {
         passwords[4] = "isThisit";
     }
 
+    void requestLogin() {
+        Scanner user = new Scanner(System.in);
+        Scanner pass = new Scanner(System.in);
+        System.out.print("Enter Username: ");
+        String username = user.nextLine();
+        System.out.print("Enter Password: ");
+        String password = pass.nextLine();
+        attemptLogin(username, password);
+    }
+
     void attemptLogin(String username, String password) {
         for (int i = 0; i < usernames.length; i++) {
-            if (usernames[i].equals(username.toLowerCase(Locale.ROOT)) && passwords[i].equals(password)) {
+            //System.out.println(usernames[i] + passwords[i]);
+            if (usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)) {
                 System.out.print("Welcome Home " + username);
                 System.exit(0);
-            } else if (i == usernames.length - 1) {
-                attempts++;
-                System.out.print("Incorrect username or password. Try again.");
+//            } else if (i == usernames.length -1) {
+//                attempts++;
+//                System.out.print("Incorrect username or password. Try again.");
+//                requestLogin();
             }
         }
     }

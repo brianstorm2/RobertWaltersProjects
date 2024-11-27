@@ -24,12 +24,8 @@ public class MainLogin {
                     case 1:
                         Login spinUpLogin = new Login();
                         spinUpLogin.fillArrays(); //initialises existing accounts
-                        System.out.print("Enter Username: ");
-                        String username = user.nextLine();
-                        System.out.print("Enter Password: ");
-                        String password = pass.nextLine();
-                        spinUpLogin.attemptLogin(username, password);
                         madeChoice = true;
+                        spinUpLogin.requestLogin();
                         break;
                     case 2:
                         System.out.print("Enter New Username: ");
@@ -50,7 +46,5 @@ public class MainLogin {
                 input.nextLine();
             }
         } while (!madeChoice);
-
-        //search for password in array
     }
 }
