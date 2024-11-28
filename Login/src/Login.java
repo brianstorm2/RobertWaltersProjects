@@ -1,5 +1,6 @@
-import java.util.Locale;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Login {
 
@@ -7,21 +8,21 @@ public class Login {
     }
 
     private static int attempts;
-    String[] usernames = new String[5];
-    String[] passwords = new String[5];
+    public static ArrayList<String> usernames = new ArrayList<String>(); //public static - tied to class can be accessed without creating new Login object
+    public static ArrayList<String> passwords = new ArrayList<String>();
 
-    void fillArrays() {
-        usernames[0] = "parsonsMatt";
-        usernames[1] = "john_frusciante";
-        usernames[2] = "kiedisAnthony21";
-        usernames[3] = "thomYorke";
-        usernames[4] = "casablancasJulian";
+    public void fillArrays() {
+        usernames.add("parsonsMatt");
+        usernames.add("john_frusciante");
+        usernames.add("kiedisAnthony21");
+        usernames.add("thomYorke");
+        usernames.add("casablancasJulian");
 
-        passwords[0] = "Mattisthebest02";
-        passwords[1] = "RedHot";
-        passwords[2] = "ChiliPeppers";
-        passwords[3] = "karmaPolice";
-        passwords[4] = "isThisit";
+        passwords.add ("Mattisthebest02");
+        passwords.add ("RedHot");
+        passwords.add("ChiliPeppers");
+        passwords.add("karmaPolice");
+        passwords.add("isThisit");
     }
 
     void requestLogin() {
@@ -35,17 +36,16 @@ public class Login {
     }
 
     void attemptLogin(String username, String password) {
-        for (int i = 0; i < usernames.length; i++) {
-            //System.out.println(usernames[i] + passwords[i]);
-            if (usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)) {
+        for (int i = 0; i < usernames.size(); i++) { //iterates through array to find if username and password combination exists
+            if (usernames.get(i).equalsIgnoreCase(username) && passwords.get(i).equals(password)) {
                 System.out.print("Welcome Home " + username);
                 System.exit(0);
-            } else if (i == usernames.length -1) {
+            } else if (i == usernames.size() -1) { //if at the end of array, add 1 to attempt counter
                 attempts++;
                 System.out.println("Incorrect username or password. Try again.");
                 requestLogin();
             }
-            else if (attempts >= 2) {
+            else if (attempts >= 2) { //gives user 3 attempts
                 System.out.print("Too many attempts. Shutting down.");
                 System.exit(0);
             }
