@@ -14,10 +14,16 @@ class MainMenuTest {
     }
 
     @Test
-    void MenuInputEqualToOneEnter() {
+    void MenuInputEqualToOneEnter() { //successful but not sure how and why
         provideInput("1\n");
         MainMenu testInput = new MainMenu();
         testInput.mainMenu();
 
+    }
+    @Test
+    void MenuInputEqualToString() { //not successful
+        provideInput("abcde\n");
+        MainMenu incorrectInput = new MainMenu();
+        incorrectInput.mainMenu();
     }
 }
