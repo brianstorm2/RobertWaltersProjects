@@ -4,8 +4,7 @@ public class MainMenu {
 
     public void mainMenu() {
         Scanner input = new Scanner(System.in); //main menu input
-        Scanner user = new Scanner(System.in); //username input
-        Scanner pass = new Scanner(System.in); //password input
+
         boolean madeChoice = false; //initialises variable for while loop until a valid choice is made
         int choice;
         Login spinUpLogin = new Login();
