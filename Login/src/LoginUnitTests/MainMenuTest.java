@@ -1,12 +1,10 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class MainMenuTest {
+class MockMainMenuTest {
+    MockMainMenu testInput = new MockMainMenu();
 
     void provideInput(String data) {
         ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
@@ -14,16 +12,33 @@ class MainMenuTest {
     }
 
     @Test
-    void MenuInputEqualToOneEnter() { //successful but not sure how and why
+    void MenuInputEqualToOneEnter() { //successful
         provideInput("1\n");
-        MainMenu testInput = new MainMenu();
-        testInput.mainMenu();
+        testInput.mockMainMenu();
+    }
+
+    @Test
+    void MenuInputEqualToTwoEnter() { //successful
+        provideInput("2\n");
+        testInput.mockMainMenu();
 
     }
+
     @Test
-    void MenuInputEqualToString() { //not successful
-        provideInput("abcde\n");
-        MainMenu incorrectInput = new MainMenu();
-        incorrectInput.mainMenu();
+    void MenuInputEqualToThreeEnter() {
+        provideInput("3\n");
+        testInput.mockMainMenu();
+    }
+
+    @Test
+    void MenuInputNotValidIntEnter() {
+        provideInput("4\n3\n"); //tests 4 to trigger loop, 3 to exit
+        testInput.mockMainMenu();
+    }
+
+    @Test
+    void MenuInputNotValidStringEnter() {
+        provideInput("abcde\n3\n"); //tests abcde to trigger loop, 3 to exit
+        testInput.mockMainMenu();
     }
 }
