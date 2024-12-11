@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main { //responsible for menus
 
     public static void main(String[] args) {
+        DataStorage.initialiseAccountHashMap(); //calls method to populate existing data
         mainMenu(); //runs main menu page
     }
 
@@ -30,8 +31,8 @@ public class Main { //responsible for menus
                     break;
                 case "2": //create account case
                     System.out.println("Directing to Create Account Menu");
-                    madeChoice = true;
                     createAccountMenu(); //calls menu below
+                    madeChoice = true;
                     break;
                 case "3": //exit case
                     System.out.print("Thank you for using Matt's login service");
@@ -43,11 +44,8 @@ public class Main { //responsible for menus
         } while (!madeChoice); //madeChoice set to false unless 1, 2 or 3 entered
     }
 
-    //add create account menu in here
     //add login inputs another class
     //user and admin classes seperate
-    //add proper go back method
-    //add data storage class, could we spin up key value pairs using this method or no point?
 
     public static void createAccountMenu() {
         Scanner reader = new Scanner(System.in);
