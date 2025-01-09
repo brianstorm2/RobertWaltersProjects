@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Login Interface -->
+
+<VBox fx:id="loginPage" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginfx.LoginController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Enter Username" />
+    <TextField fx:id="inputUsername" />
+    <Label text="Enter Password" />
+    <PasswordField fx:id="inputPassword" />
+    <Label fx:id="welcomeText" />
+    <Button fx:id="loginButton" onAction="#onLoginButtonClick" text="Login" />
+   <Button fx:id="backButton" onAction="#onBackButtonClick" mnemonicParsing="false" text="Back" />
+</VBox>
